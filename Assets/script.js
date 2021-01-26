@@ -1,4 +1,12 @@
 // DEPENDENCIES ==================================
+
+// global variables
+var currentWeatherEl = $('#current-weather'); 
+var forecastEl = $('#forecast');
+var searchBox = $('#city-search');
+var searchButton = $('#search-btn');
+var savedCitiesEl = $('#city-list');
+
 // connect to search button
 // connect to OpenWeather API via AJAX
 // connect to moment.js to display date for current selected city
@@ -6,6 +14,13 @@
 // DATA ==========================================
 // CREATE
 // create card (Jumbotron?) for current weather based on city
+// create variable for div element to place current weather info inside
+var currentWeatherInfo = $('<div>');
+// add new current weather info div to current weather info containing div
+currentWeatherEl.append(currentWeatherInfo);
+// add Bootstrap classes to current weather info div
+
+
 // create cards for 5-day weather forecast using jQuery selector
  
 // BUILD
