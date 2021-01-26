@@ -14,18 +14,45 @@
     <!-- Add header element -->
     <h1>Weather Forecast Dashboard</h1>
     <!-- Container for rest of elements on page -->
-    <!-- Aside element for city search -->
-        <!-- Textbox, button (icon within) -->
-    <!-- Div element for city/day display -->
-    <!-- Div element for 5 day forecast -->
+    <div class="container-fluid">
         <!-- Row -->
-            <!-- Columns -->
+        <div class="row">
+            <!-- Column -->
+            <div class="col-md-3">
+                <!-- Aside element for city search -->
+                <!-- Textbox, button (icon within) -->
+                <input type="text" placeholder="Search city/town" id="city-search">
+                <button id="search-btn">Search</button>
+                <!-- Div with id=cities, local storage for searched cities -->
+                <div id="city-list">
+                    <hr>
+                    <button>I'm a city</button>
+                    <br>
+                    <button>I'm a city</button>
+                    <br>
+                    <button>I'm a city</button>
+                    <br>
+                </div>
+            </div>
+                <!-- Above div prepends last city searched (script.js) -->
+            <!-- Column -->
+            <div class="col-md-9">
+                <!-- Current Weather for Day/City -->
+                <div id="current-weather">
+                    <h4>Manchester, Sunny</h4>
+                </div>
+                <div class="row" id="forecast"></div>
+            </div>
+        </div>        
+    </div>
+    
 
     
-    <!-- Include moment.js cdn link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
     <!-- Include jQuery AJAX cdn link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <!-- Include moment.js cdn link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!-- Include script.js link -->
     <script type="text/javascript" src="Assets/script.js"></script>
 </body>
