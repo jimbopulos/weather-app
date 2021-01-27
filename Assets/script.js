@@ -23,7 +23,24 @@ var savedCitiesEl = $('#city-list');
 // var cityName = ;
 
 // connect to search button
-// connect to OpenWeather API via AJAX
+searchButton.on('click', function(event) {
+    event.preventDefault();
+    // provide var for city name entered
+    var cityName = searchBox.val();
+    // implement url
+    var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
+    var curWeatherQueryURL = baseURL + curWeatherEndpoint;
+    // connect to OpenWeather API via AJAX request for current weather
+    $.ajax({
+        url: curWeatherQueryURL,
+        method: 'GET'
+    }).then (function(response) {
+        console.log(response);
+        // grab page element tags and place current weather data inside, with date/time
+        $('.city').html(response.name);
+    })
+});
+// connect to OpenWeather API via AJAX request
 
 
 // connect to moment.js to display date for current selected city
