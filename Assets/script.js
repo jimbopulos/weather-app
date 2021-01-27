@@ -36,8 +36,18 @@ searchButton.on('click', function(event) {
         method: 'GET'
     }).then (function(response) {
         console.log(response);
-        // grab page element tags and place current weather data inside, with date/time
-        $('.city').html(response.name);
+        // grab page element tags and place current weather data inside
+        $('.city').html('City: ' + response.name);
+        // create var to store response temp data, parse to whole integer
+        var temp = response.main.temp;
+        var wholeNumTemp = parseInt(temp);
+        $('.temperature').html('Temperature: ' + wholeNumTemp + ' °F');
+        $('.humidity').html('Humidity: ' + response.main.humidity + ' %');
+        // create var to store response wind speed data, parse to whole integer
+        var wind = response.wind.speed;
+        var wholeNumWind = parseInt(wind);
+        $('.windspeed').html('Windspeed: ' + wholeNumWind + " mph");
+
     })
 });
 // connect to OpenWeather API via AJAX request
@@ -67,7 +77,7 @@ searchButton.on('click', function(event) {
 // user types desired city into search
 // user clicks search button and current weather/5-day forecast cards display on right
 // latest search prepended to list below search bar (hold 5-8 at a time..?)
-
+// if user does not provide any input: no button created, no data retrieved
 
 
 // // create card (Jumbotron?) for current weather based on city
