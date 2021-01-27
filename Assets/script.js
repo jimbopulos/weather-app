@@ -27,6 +27,10 @@ searchButton.on('click', function(event) {
     event.preventDefault();
     // provide var for city name entered
     var cityName = searchBox.val();
+
+    // buttons prepended to col containing search bar, underneath
+    // created button will save, remain on page. can re-access data with click
+
     // implement url
     var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
     var curWeatherQueryURL = baseURL + curWeatherEndpoint;
@@ -62,7 +66,7 @@ searchButton.on('click', function(event) {
         })
     })
 });
-// connect to OpenWeather API via AJAX request
+
 
 
 // connect to moment.js to display date for current selected city
@@ -70,11 +74,14 @@ searchButton.on('click', function(event) {
 // DATA ==========================================
 // CREATE
 // create cards for 5-day weather forecast using jQuery selector
-// add AJAX input to current weather div
+var forecastContainer = $('#forecast');
+
+function forecastDisplay (response) {
+
+}
 
 // BUILD
 // addClasses (Bootstrap) to forecast cards using jQuery
-// addClasses (Bootstrap) to current weather card/Jumbotron
 
 // PLACE
 // append forecast cards to containing div
