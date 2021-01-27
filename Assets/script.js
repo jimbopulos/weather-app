@@ -5,13 +5,13 @@
 var APIKey = "&appid=7320aea45cb99335da9de37f5a6f2e7d";
 var baseURL = "https://api.openweathermap.org";
 
-var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
-var fiveDayEndpoint = "/data/2.5/forecast/daily?q=" + cityName + "&units=imperial&cnt=5" + APIKey;
+// var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
+// var fiveDayEndpoint = "/data/2.5/forecast/daily?q=" + cityName + "&units=imperial&cnt=5" + APIKey;
 
-var curWeatherQueryURL = baseURL + curWeatherEndpoint;
-var fiveDayQueryURL = baseURL + fiveDayEndpoint;
+// var curWeatherQueryURL = baseURL + curWeatherEndpoint;
+// var fiveDayQueryURL = baseURL + fiveDayEndpoint;
 
-// var currentDate = $('#current-day').text(moment().format("dddd, MMMM Do YYYY, h:mm a"))
+var currentDate = $('#current-day').text(moment().format("dddd, MMMM Do h:mm a"))
 
 // page elements
 var currentWeatherEl = $('#current-weather'); 
@@ -23,7 +23,46 @@ var savedCitiesEl = $('#city-list');
 // var cityName = ;
 
 // connect to search button
-// connect to OpenWeather API via AJAX
+searchButton.on('click', function(event) {
+    event.preventDefault();
+    // provide var for city name entered
+    var cityName = searchBox.val();
+    // implement url
+    var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
+    var curWeatherQueryURL = baseURL + curWeatherEndpoint;
+    // connect to OpenWeather API via AJAX request for current weather
+    $.ajax({
+        url: curWeatherQueryURL,
+        method: 'GET'
+    }).then (function(response) {
+        console.log(response);
+        // grab page element tags and place current weather data inside
+        $('.city').html('City: ' + response.name);
+        // create var to store response temp data, parse to whole integer
+        var temp = response.main.temp;
+        var wholeNumTemp = parseInt(temp);
+        $('.temperature').html('Temperature: ' + wholeNumTemp + ' °F');
+        $('.humidity').html('Humidity: ' + response.main.humidity + ' %');
+        // create var to store response wind speed data, parse to whole integer
+        var wind = response.wind.speed;
+        var wholeNumWind = parseInt(wind);
+        $('.windspeed').html('Windspeed: ' + wholeNumWind + " mph");
+        
+        // implement url UV index
+        var uvIndexEndpoint = "/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + APIKey;
+        var uvIndexQueryURL = baseURL + uvIndexEndpoint;
+        // separate AJAX request to retrieve lat and long for UV index
+        console.log(uvIndexQueryURL);
+        $.ajax({
+            url: uvIndexQueryURL,
+            method: 'GET'
+        }).then (function(response) {
+            console.log(response);
+            $('.uv-index').html('UV Index: ' + response.value);
+        })
+    })
+});
+// connect to OpenWeather API via AJAX request
 
 
 // connect to moment.js to display date for current selected city
@@ -50,7 +89,7 @@ var savedCitiesEl = $('#city-list');
 // user types desired city into search
 // user clicks search button and current weather/5-day forecast cards display on right
 // latest search prepended to list below search bar (hold 5-8 at a time..?)
-
+// if user does not provide any input: no button created, no data retrieved
 
 
 // // create card (Jumbotron?) for current weather based on city
