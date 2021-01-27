@@ -5,13 +5,13 @@
 var APIKey = "&appid=7320aea45cb99335da9de37f5a6f2e7d";
 var baseURL = "https://api.openweathermap.org";
 
-var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
-var fiveDayEndpoint = "/data/2.5/forecast/daily?q=" + cityName + "&units=imperial&cnt=5" + APIKey;
+// var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
+// var fiveDayEndpoint = "/data/2.5/forecast/daily?q=" + cityName + "&units=imperial&cnt=5" + APIKey;
 
-var curWeatherQueryURL = baseURL + curWeatherEndpoint;
-var fiveDayQueryURL = baseURL + fiveDayEndpoint;
+// var curWeatherQueryURL = baseURL + curWeatherEndpoint;
+// var fiveDayQueryURL = baseURL + fiveDayEndpoint;
 
-// var currentDate = $('#current-day').text(moment().format("dddd, MMMM Do YYYY, h:mm a"))
+var currentDate = $('#current-day').text(moment().format("dddd, MMMM Do h:mm a"))
 
 // page elements
 var currentWeatherEl = $('#current-weather'); 
