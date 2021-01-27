@@ -65,9 +65,18 @@ searchButton.on('click', function(event) {
             $('.uv-index').html('UV Index: ' + response.value);
         })
     })
+    // implement url
+    var fiveDayEndpoint = "/data/2.5/forecast?q=" + cityName + "&units=imperial" + APIKey;
+    var fiveDayQueryURL = baseURL + fiveDayEndpoint;
+    console.log(fiveDayQueryURL);
+    // connect to OpenWeather API via AJAX request for fiveday forecast
+    $.ajax({
+        url: fiveDayQueryURL,
+        method: 'GET'
+    }).then (function(response) {
+        console.log(response);
+    })
 });
-
-
 
 // connect to moment.js to display date for current selected city
 
