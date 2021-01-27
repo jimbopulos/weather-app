@@ -47,7 +47,19 @@ searchButton.on('click', function(event) {
         var wind = response.wind.speed;
         var wholeNumWind = parseInt(wind);
         $('.windspeed').html('Windspeed: ' + wholeNumWind + " mph");
-
+        
+        // implement url UV index
+        var uvIndexEndpoint = "/data/2.5/uvi?lat=" + response.coord.lat + "&lon=" + response.coord.lon + APIKey;
+        var uvIndexQueryURL = baseURL + uvIndexEndpoint;
+        // separate AJAX request to retrieve lat and long for UV index
+        console.log(uvIndexQueryURL);
+        $.ajax({
+            url: uvIndexQueryURL,
+            method: 'GET'
+        }).then (function(response) {
+            console.log(response);
+            $('.uv-index').html('UV Index: ' + response.value);
+        })
     })
 });
 // connect to OpenWeather API via AJAX request
