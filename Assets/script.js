@@ -5,12 +5,6 @@
 var APIKey = "&appid=7320aea45cb99335da9de37f5a6f2e7d";
 var baseURL = "https://api.openweathermap.org";
 
-// var curWeatherEndpoint = "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
-// var fiveDayEndpoint = "/data/2.5/forecast?q=" + cityName + APIKey;
-
-// var curWeatherQueryURL = baseURL + curWeatherEndpoint;
-// var fiveDayQueryURL = baseURL + fiveDayEndpoint;
-
 // connect to moment.js to display date for current selected city
 var currentDate = $("#current-day").text(
   moment().format("dddd, MMMM Do h:mm a")
@@ -33,16 +27,16 @@ searchButton.on("click", function (event) {
   cityBtn.push(cityName);
   localStorage.setItem("city", JSON.stringify(cityBtn));
 
-  // buttons prepended to col containing search bar, underneath
-  // created button will save, remain on page. can re-access data with click
   currentCity(cityName);
   fiveDays(cityName);
 });
 
 function currentCity(city) {
+  // var cityName = searchBox.val();
+
   // implement url
   var curWeatherEndpoint =
-    "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
+    "/data/2.5/weather?q=" + city + "&units=imperial" + APIKey;
   var curWeatherQueryURL = baseURL + curWeatherEndpoint;
   // connect to OpenWeather API via AJAX request for current weather
   $.ajax({
@@ -77,14 +71,22 @@ function currentCity(city) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
-      $(".uv-index").html("UV Index: " + response.value);
+      $(".uv-index").html("UV Index: ");
+      var uvValue = $(".uv-value").html(response.value);
+      if (response.value < 5) {
+        uvValue.css("color", "green");
+      } else if (response.value >= 5 && response.value <= 7) {
+        uvValue.css("color", "yellow");
+      } else {
+        uvValue.css("color", "red");
+      }
     });
-    //var fiveDayEndpoint = "/data/2.5/forecast?q=" + cityName + APIKey;
   });
 }
 
 function fiveDays(city) {
   var forecastContainer = $("#forecast");
+  forecastContainer.empty();
   var fiveDayEndpoint =
     "/data/2.5/forecast?q=" + city + "&units=imperial" + APIKey;
   var fiveDayQueryURL = baseURL + fiveDayEndpoint;
@@ -103,67 +105,45 @@ function fiveDays(city) {
         console.log("Inside for loop");
         var weatherCard = `<div class="card" style="width: 18rem;">
         <p>${t[0]}</p>
-            <img src="http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png" class="icon" alt="...">
+            <img src="http://openweathermap.org/img/w/${
+              response.list[i].weather[0].icon
+            }.png" class="icon" alt="weather-icon">
             <div class="card-body">
-              <p class="card-text">Temp: ${response.list[i].main.temp}</p>
-              <p> Humidity: ${response.list[i].main.humidity}</p>
+              <p class="card-text">Temp: ${Math.floor(
+                response.list[i].main.temp
+              )} °F</p>
+              <p> Humidity: ${response.list[i].main.humidity} %</p>
             </div>
           </div>`;
-        $("#forecast").append(weatherCard);
+        forecastContainer.append(weatherCard);
       }
     }
   });
 }
 
+// let btn;
+
 function cBtn() {
   var cityBtn = JSON.parse(localStorage.getItem("city")) || [];
+
   for (var i = 0; i < cityBtn.length; i++) {
-    var btn = $("<button>");
+    btn = $("<button>");
     btn.attr("data-city", cityBtn[i]);
     btn.addClass("c");
     btn.text(cityBtn[i]);
     $("#city-list").append(btn);
+
+    // onClick event for each city button
+    btn.on("click", function (event) {
+      event.preventDefault();
+
+      var cityName = $(this).data("city");
+      console.log(cityName);
+
+      currentCity(cityName);
+      fiveDays(cityName);
+    });
   }
 }
 
 cBtn();
-
-// DATA ==========================================
-// CREATE
-// create cards for 5-day weather forecast using jQuery selector
-
-// BUILD
-// addClasses (Bootstrap) to forecast cards using jQuery
-
-// PLACE
-// append forecast cards to containing div
-// append current weather card to containing div
-
-// FUNCTIONS =====================================
-// local storage remembers user's last search
-// AJAX API pull to retrieve info for current weather
-// AJAX API pull to retrieve info for 5-day forecast
-
-// USER INTERACTIONS =============================
-// user types desired city into search
-// user clicks search button and current weather/5-day forecast cards display on right
-// latest search prepended to list below search bar (hold 5-8 at a time..?)
-// if user does not provide any input: no button created, no data retrieved
-
-// // create card (Jumbotron?) for current weather based on city
-// // create variable for div element to place current weather info inside
-// var currentWeatherInfo = $('<div>');
-// // add new current weather info div to current weather info containing div
-// currentWeatherEl.append(currentWeatherInfo);
-// // add Bootstrap classes to current weather info div
-// currentWeatherInfo.addClass('card');
-// // add another div for content within card itself
-// var currentWeatherInfoInner = $('<div>')
-// currentWeatherInfo.append(currentWeatherInfoInner)
-// currentWeatherInfoInner.addClass('card-body');
-
-// // add Bootstrap attributes and values to current weather info div
-// // use object
-// currentWeatherInfo.attr({
-
-// })
