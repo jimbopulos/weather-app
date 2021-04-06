@@ -23,8 +23,6 @@ var searchBox = $("#city-search");
 var searchButton = $("#search-btn");
 var savedCitiesEl = $("#city-list");
 
-// var cityName = ;
-
 // connect to search button
 searchButton.on("click", function (event) {
   event.preventDefault();
@@ -39,12 +37,9 @@ searchButton.on("click", function (event) {
   // created button will save, remain on page. can re-access data with click
   currentCity(cityName);
   fiveDays(cityName);
-
-  // implement url
 });
 
-function currentCity(city){
-  
+function currentCity(city) {
   // implement url
   var curWeatherEndpoint =
     "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
@@ -85,8 +80,6 @@ function currentCity(city){
       $(".uv-index").html("UV Index: " + response.value);
     });
     //var fiveDayEndpoint = "/data/2.5/forecast?q=" + cityName + APIKey;
-
-    
   });
 }
 
@@ -104,12 +97,11 @@ function fiveDays(city) {
     console.log(response);
     for (let i = 0; i < response.list.length; i++) {
       var t = response.list[i].dt_txt.split(" ");
-    
+
       console.log(t);
-      if(t[1] === "00:00:00" ){
+      if (t[1] === "00:00:00") {
         console.log("Inside for loop");
-      var weatherCard =
-        `<div class="card" style="width: 18rem;">
+        var weatherCard = `<div class="card" style="width: 18rem;">
         <p>${t[0]}</p>
             <img src="http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png" class="icon" alt="...">
             <div class="card-body">
@@ -117,16 +109,15 @@ function fiveDays(city) {
               <p> Humidity: ${response.list[i].main.humidity}</p>
             </div>
           </div>`;
-          $("#forecast").append(weatherCard);
-          }
-        
-        }
+        $("#forecast").append(weatherCard);
+      }
+    }
   });
 }
 
-function cBtn(){
+function cBtn() {
   var cityBtn = JSON.parse(localStorage.getItem("city")) || [];
-  for(var i=0; i<cityBtn.length;i++){
+  for (var i = 0; i < cityBtn.length; i++) {
     var btn = $("<button>");
     btn.attr("data-city", cityBtn[i]);
     btn.addClass("c");
