@@ -23,6 +23,8 @@ var searchBox = $("#city-search");
 var searchButton = $("#search-btn");
 var savedCitiesEl = $("#city-list");
 
+// var cityName = ;
+
 // connect to search button
 searchButton.on("click", function (event) {
   event.preventDefault();
@@ -40,6 +42,8 @@ searchButton.on("click", function (event) {
 });
 
 function currentCity(city) {
+  var cityName = searchBox.val();
+
   // implement url
   var curWeatherEndpoint =
     "/data/2.5/weather?q=" + cityName + "&units=imperial" + APIKey;
@@ -103,10 +107,14 @@ function fiveDays(city) {
         console.log("Inside for loop");
         var weatherCard = `<div class="card" style="width: 18rem;">
         <p>${t[0]}</p>
-            <img src="http://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png" class="icon" alt="...">
+            <img src="http://openweathermap.org/img/w/${
+              response.list[i].weather[0].icon
+            }.png" class="icon" alt="...">
             <div class="card-body">
-              <p class="card-text">Temp: ${response.list[i].main.temp}</p>
-              <p> Humidity: ${response.list[i].main.humidity}</p>
+              <p class="card-text">Temp: ${Math.floor(
+                response.list[i].main.temp
+              )} °F</p>
+              <p> Humidity: ${response.list[i].main.humidity} %</p>
             </div>
           </div>`;
         $("#forecast").append(weatherCard);
