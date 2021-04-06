@@ -81,7 +81,15 @@ function currentCity(city) {
       method: "GET",
     }).then(function (response) {
       console.log(response);
-      $(".uv-index").html("UV Index: " + response.value);
+      $(".uv-index").html("UV Index: ");
+      var uvValue = $(".uv-value").html(response.value);
+      if (response.value < 5) {
+        uvValue.css("color", "green");
+      } else if (response.value >= 5 && response.value <= 7) {
+        uvValue.css("color", "yellow");
+      } else {
+        uvValue.css("color", "red");
+      }
     });
     //var fiveDayEndpoint = "/data/2.5/forecast?q=" + cityName + APIKey;
   });
