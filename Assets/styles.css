@@ -3,6 +3,10 @@
 }
 
 body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-image: linear-gradient(to bottom right, white, skyblue, white);
 }
 
@@ -17,10 +21,11 @@ header {
 #current-weather {
   box-shadow: 0 0 8px #6c757d;
   border-radius: 5px;
+  margin-bottom: 2%;
 }
 
 .current-weather-body {
-  padding: 2%;
+  padding: 3%;
 }
 
 .content {
@@ -30,13 +35,13 @@ header {
 .cities {
   background-color: white;
   box-shadow: 0 0 8px #6c757d;
-  padding: 10%;
+  padding: 7%;
   border-radius: 5px;
   margin-bottom: 3%;
 }
 
 #city-search {
-  box-shadow: 0 0 8px #6c757d;
+  box-shadow: 0 0 4px #6c757d;
 }
 
 .btn.btn-primary {
@@ -87,7 +92,7 @@ header {
 
 .weather-card {
   padding: 1%;
-  margin-top: 4%;
+  margin-top: 2%;
   margin-left: 2%;
   box-shadow: 0 0 11px #6c757d;
   color: white;
