@@ -22,10 +22,12 @@
             <!-- Column -->
             <div class="col-md-2">
 								<!-- Textbox, button (icon within) -->
-								<span class="search-form">
-									<input type="text" placeholder="Search city/town" id="city-search">
-                	<button type="submit" id="search-btn">Search</button>
-								</span>
+									<form class="d-flex">
+										<input class="form-control me-2" type="search" id="city-search" placeholder="Search" aria-label="Search">
+										<button class="btn btn-outline-primary" type="submit" id="search-btn">Search</button>
+									</form>
+									<!-- <input type="text" placeholder="Search city/town" id="city-search">
+                	<button type="submit" id="search-btn">Search</button> -->
                 <!-- Div with id=cities, local storage for searched cities -->
                 <div id="city-list"></div>             
             </div>

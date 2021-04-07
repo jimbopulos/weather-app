@@ -130,9 +130,9 @@ function cBtn() {
   for (var i = 0; i < cityBtn.length; i++) {
     btn = $("<button>");
     btn.attr("data-city", cityBtn[i]);
-    btn.addClass("c");
+    btn.addClass("c col-md-12 btn btn-primary");
     btn.text(cityBtn[i]);
-    $("#city-list").append(btn);
+    $("#city-list").prepend(btn);
 
     // onClick event for each city button
     btn.on("click", function (event) {
