@@ -97,6 +97,7 @@ function fiveDays(city) {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    forecastContainer.append("<h4>5 Day Forecast</h4>");
     for (let i = 0; i < response.list.length; i++) {
       var t = response.list[i].dt_txt.split(" ");
 
