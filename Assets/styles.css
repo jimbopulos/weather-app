@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
 .icon {
   width: 5em;
 }
@@ -15,7 +21,7 @@ header {
   background-color: rgb(14, 14, 177);
   padding: 2em;
   color: white;
-  box-shadow: 0 0 15px black;
+  box-shadow: 0 0 13px black;
 }
 
 #current-weather {
@@ -29,7 +35,7 @@ header {
 }
 
 .content {
-  margin-top: 2%;
+  margin-top: 3%;
 }
 
 .cities {
@@ -38,6 +44,10 @@ header {
   padding: 7%;
   border-radius: 5px;
   margin-bottom: 3%;
+}
+
+.search {
+  margin-top: 4%;
 }
 
 #city-search {
