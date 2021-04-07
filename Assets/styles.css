@@ -1,28 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  font-family: "Rubik", sans-serif;
+}
+
 .icon {
   width: 5em;
 }
 
-/* #current-weather {
-  margin-left: 0px;
-} */
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom right, white, skyblue, white);
+}
 
 header {
   text-align: center;
   background-color: rgb(14, 14, 177);
   padding: 2em;
   color: white;
+  box-shadow: 0 0 13px black;
 }
 
 #current-weather {
+  box-shadow: 0 0 8px #6c757d;
+  border-radius: 5px;
+  margin-bottom: 2%;
+}
+
+.current-weather-body {
+  padding: 4%;
+  border-radius: 5px;
 }
 
 .content {
-  margin-top: 1%;
+  margin-top: 3%;
+}
+
+.cities {
+  background-color: white;
+  box-shadow: 0 0 8px #6c757d;
+  padding: 7%;
+  border-radius: 3px;
+  margin-bottom: 3%;
+}
+
+.search {
+  margin-top: 4%;
+}
+
+#city-search {
+  box-shadow: 0 0 4px #6c757d;
+}
+
+.btn.btn-primary {
+  background-color: rgb(14, 14, 177);
+}
+
+.btn.btn-primary:hover {
+  background-color: rgb(33, 33, 223);
+}
+
+.btn.btn-outline-primary {
+  color: rgb(14, 14, 177);
+  border-color: rgb(14, 14, 177);
+}
+
+.btn.btn-outline-primary:hover {
+  color: white;
+  background-color: rgb(33, 33, 223);
 }
 
 #city-list {
+  margin-top: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.c {
+  text-transform: capitalize;
   margin-top: 2%;
-  margin-bottom: 2%;
+  margin-left: 1%;
+  margin-right: 1%;
+  width: 85%;
 }
 
 #uv {
@@ -34,22 +97,20 @@ header {
   margin-left: 5px;
 }
 
-.search-form {
-  display: flex;
-  justify-content: flex-start;
-}
-
-#search-btn {
-  margin-right: 1%;
-  margin-left: 1%;
-}
-
 #forecast {
+  margin: auto;
   display: flex;
   justify-content: center;
+  padding: 3%;
+  border-radius: 5px;
+  margin-bottom: 4%;
 }
 
 .weather-card {
+  padding: 2%;
   margin-top: 2%;
   margin-left: 2%;
+  box-shadow: 0 0 11px #6c757d;
+  color: white;
+  background-color: rgb(33, 33, 223);
 }

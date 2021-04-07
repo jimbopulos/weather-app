@@ -50,7 +50,7 @@ function currentCity(city) {
     var temp = response.main.temp;
     var wholeNumTemp = parseInt(temp);
     $(".temperature").html("Temperature: " + wholeNumTemp + " °F");
-    $(".humidity").html("Humidity: " + response.main.humidity + " %");
+    $(".humidity").html("Humidity: " + response.main.humidity + "%");
     // create var to store response wind speed data, parse to whole integer
     var wind = response.wind.speed;
     var wholeNumWind = parseInt(wind);
@@ -97,6 +97,9 @@ function fiveDays(city) {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+    forecastContainer.append(
+      `<h4 style="text-align:center;">5 Day Forecast</h4>`
+    );
     for (let i = 0; i < response.list.length; i++) {
       var t = response.list[i].dt_txt.split(" ");
 
@@ -130,9 +133,9 @@ function cBtn() {
   for (var i = 0; i < cityBtn.length; i++) {
     btn = $("<button>");
     btn.attr("data-city", cityBtn[i]);
-    btn.addClass("c");
+    btn.addClass("c col-md-12 btn btn-primary");
     btn.text(cityBtn[i]);
-    $("#city-list").append(btn);
+    $("#city-list").prepend(btn);
 
     // onClick event for each city button
     btn.on("click", function (event) {
