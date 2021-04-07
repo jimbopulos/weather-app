@@ -1,3 +1,55 @@
 .icon {
   width: 5em;
 }
+
+/* #current-weather {
+  margin-left: 0px;
+} */
+
+header {
+  text-align: center;
+  background-color: rgb(14, 14, 177);
+  padding: 2em;
+  color: white;
+}
+
+#current-weather {
+}
+
+.content {
+  margin-top: 1%;
+}
+
+#city-list {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+#uv {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.uv-value {
+  margin-left: 5px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#search-btn {
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+#forecast {
+  display: flex;
+  justify-content: center;
+}
+
+.weather-card {
+  margin-top: 2%;
+  margin-left: 2%;
+}

@@ -103,11 +103,12 @@ function fiveDays(city) {
       console.log(t);
       if (t[1] === "00:00:00") {
         console.log("Inside for loop");
-        var weatherCard = `<div class="card" style="width: 18rem;">
+        var weatherCard = `
+        <div class="card weather-card" style="width: 14rem;">
         <p>${t[0]}</p>
             <img src="http://openweathermap.org/img/w/${
               response.list[i].weather[0].icon
-            }.png" class="icon" alt="weather-icon">
+            }.png" class="icon card-img-top" alt="weather-icon">
             <div class="card-body">
               <p class="card-text">Temp: ${Math.floor(
                 response.list[i].main.temp

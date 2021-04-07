@@ -11,25 +11,27 @@
     <link rel="stylesheet" href="Assets/styles.css">
 </head>
 <body>
-    <!-- Add header element -->
-    <h1>Weather Forecast Dashboard</h1>
+		<!-- Add header element -->
+		<header>
+			<h1>Weather Forecast Dashboard</h1>
+		</header>
     <!-- Container for rest of elements on page -->
     <div class="container-fluid">
         <!-- Row -->
-        <div class="row">
+        <div class="row content">
             <!-- Column -->
-            <div class="col-md-3">
-                <!-- Textbox, button (icon within) -->
-                <input type="text" placeholder="Search city/town" id="city-search">
-                <button type="submit" id="search-btn">Search</button>
+            <div class="col-md-2">
+								<!-- Textbox, button (icon within) -->
+								<span class="search-form">
+									<input type="text" placeholder="Search city/town" id="city-search">
+                	<button type="submit" id="search-btn">Search</button>
+								</span>
                 <!-- Div with id=cities, local storage for searched cities -->
-                <div id="city-list">
-                    
-                </div>
+                <div id="city-list"></div>             
             </div>
                 <!-- Above div prepends last city searched (script.js) -->
             <!-- Column -->
-            <div class="col-md-9">
+            <div class="col-md-10">
                 <!-- Current Weather for Day/City -->
                 <div id="current-weather">
                     <div class="card">
@@ -44,11 +46,11 @@
                           <br>
                           <h5 class="windspeed"></h5>
                           <br>
-                          <span id='uv'><h5 class="uv-index"></h5><h5 class="uv-value"></h5></span>
+                          <span id="uv"><h5 class="uv-index"></h5><h5 class="uv-value"></h5></span>
                         </div>
                       </div>
                 </div>
-                <div class="row" id="forecast"></div>
+                <div class="row container-fluid" id="forecast"></div>
             </div>
         </div>        
     </div>
