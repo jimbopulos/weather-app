@@ -1,11 +1,70 @@
 # Weather Forecaster Application
 
-The goal of this application was to present a user with weather data for a given city. Leveraging the API's offered by [openweathermap.org](https://openweathermap.org/api), we fetched the information provided and placed them on the page for the user to access in a simple and stream-lined interface.
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-When the user searches for their desired city in the panel on the lefthand side of the application, the respective information regarding: city, temperature, humidity, windspeed, and ultraviolet index (UV Index) will appear in the center of the page. Above the section that provides the user with the selected current weather data, the day, date, and time are also displayed. In addition to the current weather information supplied, a section containing a five-day forecast will also appear below, with the associated dates, temperatures, and humidity percentages, and visual icons representing weather conditions for each day.
+## Description
 
-Should the user decide to search the weather conditions for another city, they may do so by simply entering a new input to the search box. Their last search will be saved as a clickable button below said box, and can be accessed later. The new search shall prepended to the top of this formed list of city searches, where each button will access the weather information upon each click. If the user refreshes the page, or leaves, their past searches will be saved in the side panel under the search box, and the last loaded city and its assocaited weather data will appear on the page upon reloading.
+Obtain weather data for a given city. Leveraging the API's offered by [openweathermap.org](https://openweathermap.org/api), information will be provided on the page for the user to access in a simple, stream-lined interface.
 
-![weather-forecaster-application](Assets/Weather-Dashboard-screenshot.png)
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Deployed URL](#deployed-url)
+- [License](#license)
+
+## Installation
+
+Navigate the [deployed URL](#deployed-url) to begin using this app.
+
+## Usage
+
+1. Find the `Search for city/town` form on the lefthand side of the page.
+2. Click `Search` or press the enter key to search a city.
+3. The chosen `City`, with current `Temperature`, `Humidity`, `Windspeed` (in mph), and ultraviolet index (`UV Index`) will be displayed in to the right.
+4. A user may select any of the previously searched cities under the search form in order to check weather data at a later point.
+   **NOTE** Your searched city list will persist upon page exit or refresh.
+
+![weather-forecaster-application-startup](Assets/images/Weather-app1.png)
+
+![weather-forecaster-application-fiveday-forecast](Assets/images/Weather-app2.png)
+
+## Technologies
+
+- `HTML`
+- `CSS` and `Bootstrap`
+- `JavaScript`
+- `OpenWeatherMap` API
+
+## Deployed URL
 
 Check the weather near you **[here!](https://jimbopulos.github.io/weather-app/)**
+
+## Questions
+
+If you have any questions, please contact jimbopulos at james.mgalantino@gmail.com
+
+## License
+
+MIT License
+
+Copyright (c) 2021 James Galantino
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
