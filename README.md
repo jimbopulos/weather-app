@@ -26,7 +26,11 @@ Navigate the [deployed URL](#deployed-url) to begin using this app.
 4. A user may select any of the previously searched cities under the search form in order to check weather data at a later point.
    **NOTE** Your searched city list will persist upon page exit or refresh.
 
+> Startup
+
 ![weather-forecaster-application-startup](Assets/images/Weather-app1.png)
+
+> 5 Day Forecast
 
 ![weather-forecaster-application-fiveday-forecast](Assets/images/Weather-app2.png)
 
