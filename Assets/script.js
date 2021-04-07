@@ -50,7 +50,7 @@ function currentCity(city) {
     var temp = response.main.temp;
     var wholeNumTemp = parseInt(temp);
     $(".temperature").html("Temperature: " + wholeNumTemp + " °F");
-    $(".humidity").html("Humidity: " + response.main.humidity + " %");
+    $(".humidity").html("Humidity: " + response.main.humidity + "%");
     // create var to store response wind speed data, parse to whole integer
     var wind = response.wind.speed;
     var wholeNumWind = parseInt(wind);
